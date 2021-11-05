@@ -3,13 +3,26 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define BUFFER_SIZE 1
+#ifndef BUFFER_SIZE
+#define BUFFER_SIZE 1
+#endif
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }	t_list;
+
+typedef struct snode
+{
+	int	val;
+	struct snode *next;
+} node;
+
+typedef struct linked_list
+{
+	node *begin;
+} linkedlist;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -60,5 +73,10 @@ void	ft_int_to_hex(int nbr);
 int		ft_len_uns_nbr(unsigned int n);
 char	*ft_strncpy(char *dest, const char *src, size_t n);
 int		get_next_line(int fd, char **line);
+
+/** New functions to work with linked lists **/
+node		*snode_create(int val);
+linkedlist	*ft_linkedlist_create();
+void		ft_linkedlist_add_first(linkedlist *list, int val);
 
 #endif
