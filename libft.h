@@ -75,8 +75,10 @@ char	*ft_strncpy(char *dest, const char *src, size_t n);
 int		get_next_line(int fd, char **line);
 
 /** New functions to work with linked lists **/
-node		*snode_create(int val);
+node		*ft_snode_create(int val);
 linkedlist	*ft_linkedlist_create();
 void		ft_linkedlist_add_first(linkedlist *list, int val);
+void		ft_linkdedlist_print(linkedlist *list);
+void		ft_linkedlist_add_last(linkedlist *list, int val);
 
 #endif

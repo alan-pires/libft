@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_linkedlist_add_first.c                          :+:      :+:    :+:   */
+/*   ft_linkedlist_printf.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/04 22:48:34 by apires-d          #+#    #+#             */
-/*   Updated: 2021/11/05 21:17:22 by apires-d         ###   ########.fr       */
+/*   Created: 2021/11/07 14:14:02 by apires-d          #+#    #+#             */
+/*   Updated: 2021/11/07 14:36:35 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_linkedlist_add_first(linkedlist *list, int val)
+/* Creates an auxiliary node that will points to the first node of a linked list
+	and then loop until it reaches the end of the list, that is, when it points to NULL */
+
+void	ft_linkdedlist_print(linkedlist *list)
 {
 	node	*p;
-
-	p = ft_snode_create(val);
-	p->next = list->begin;
-	list->begin = p;
+	
+	p = list->begin;
+	ft_putstr_fd("LinkedList -> ",1);
+	while (p != NULL)
+	{
+		ft_putnbr_fd(p->val, 1);
+		ft_putstr_fd(" -> ",1);
+		p = p->next;
+	}
+	ft_putstr_fd("NULL\n",1);
 }
