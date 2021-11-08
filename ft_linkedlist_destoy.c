@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_linkedlist_add_last.c                           :+:      :+:    :+:   */
+/*   ft_linkedlist_destoy.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/07 14:40:55 by apires-d          #+#    #+#             */
-/*   Updated: 2021/11/07 22:26:11 by apires-d         ###   ########.fr       */
+/*   Created: 2021/11/07 21:07:49 by apires-d          #+#    #+#             */
+/*   Updated: 2021/11/07 21:43:13 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/**  **/
-
-void	ft_linkedlist_add_last(linkedlist *list, int val)
+void	ft_linkedlist_destroy(linkedlist **list_ref)
 {
-	node	*last_node;
-
-	last_node = ft_snode_create(val);
-	if (list->begin == NULL)
+	linkedlist	*list_aux;
+	node		*current_node;
+	node		*node_aux;
+	
+	list_aux = *list_ref;
+	current_node = list_aux->begin;
+	node_aux = NULL;
+	while (current_node != NULL)
 	{
-		list->begin = last_node;
-		list->end = last_node;
+		node_aux = current_node;
+		current_node = current_node->next;
+		free(node_aux);
 	}
-	else
-	{
-		list->end->next = last_node;
-		list->end = list->end->next;
-	}
-	list->size++;
+	free(list_aux);
+	*list_ref = NULL;
 }

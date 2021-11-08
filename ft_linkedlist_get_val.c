@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_linkedlist_add_last.c                           :+:      :+:    :+:   */
+/*   ft_linkedlist_get_val.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/07 14:40:55 by apires-d          #+#    #+#             */
-/*   Updated: 2021/11/07 22:26:11 by apires-d         ###   ########.fr       */
+/*   Created: 2021/11/07 22:50:31 by apires-d          #+#    #+#             */
+/*   Updated: 2021/11/07 23:06:28 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/**  **/
-
-void	ft_linkedlist_add_last(linkedlist *list, int val)
+int	ft_linkedlist_get_val(linkedlist *list, int index)
 {
-	node	*last_node;
+	int		i;
+	node	*current_node;
 
-	last_node = ft_snode_create(val);
-	if (list->begin == NULL)
+	i = 0;
+	current_node = list->begin;
+	if (list->size <= 0)
 	{
-		list->begin = last_node;
-		list->end = last_node;
+		ft_putstr_fd("The list is empty\n", 1);
+		return (-1);
+	}
+	else if (index < 0 || index >= list->size)
+	{
+		ft_putstr_fd("You're trying to access an invalid index\n", 1);
+		return (-1);
 	}
 	else
 	{
-		list->end->next = last_node;
-		list->end = list->end->next;
+		while (i++ != index)
+			current_node = current_node->next;
 	}
-	list->size++;
+	return (current_node->val);
 }

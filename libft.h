@@ -1,5 +1,5 @@
 #ifndef LIBFT_H
-# define	LIBFT_H
+# define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -21,9 +21,12 @@ typedef struct snode
 
 typedef struct linked_list
 {
-	node *begin;
+	node	*begin;
+	node	*end;
+	int		size;
 } linkedlist;
 
+/** **/
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
@@ -74,11 +77,15 @@ int		ft_len_uns_nbr(unsigned int n);
 char	*ft_strncpy(char *dest, const char *src, size_t n);
 int		get_next_line(int fd, char **line);
 
-/** New functions to work with linked lists **/
+/** Refactored functions to work with linked lists **/
 node		*ft_snode_create(int val);
 linkedlist	*ft_linkedlist_create();
 void		ft_linkedlist_add_first(linkedlist *list, int val);
 void		ft_linkdedlist_print(linkedlist *list);
 void		ft_linkedlist_add_last(linkedlist *list, int val);
+void		ft_linkedlist_remove(linkedlist *list, int val);
+void		ft_linkedlist_destroy(linkedlist **list_ref);
+int			ft_linkedlist_size(linkedlist *list);
+int			ft_linkedlist_get_val(linkedlist *list, int index);
 
 #endif
