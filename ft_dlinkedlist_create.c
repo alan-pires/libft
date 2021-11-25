@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_linkedlist_add_last.c                           :+:      :+:    :+:   */
+/*   ft_dlinkedlist_create.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/07 14:40:55 by apires-d          #+#    #+#             */
-/*   Updated: 2021/11/24 23:12:19 by apires-d         ###   ########.fr       */
+/*   Created: 2021/11/04 22:32:06 by apires-d          #+#    #+#             */
+/*   Updated: 2021/11/24 21:59:19 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/**  **/
-
-void	ft_dlinkedlist_add_last(d_linked_list *list, int val)
+d_linked_list	*ft_dlinkedlist_create()
 {
-	node	*last_node;
+	d_linked_list	*list;
 
-	last_node = ft_snode_create(val);
-	if (list->begin == NULL)
-	{
-		list->begin = last_node;
-		list->end = last_node;
-	}
-	else
-	{
-		list->end->next = last_node;
-		list->end = list->end->next;
-	}
-	list->size++;
+	list = (d_linked_list*)ft_calloc(1, sizeof(d_linked_list));
+	list->begin = NULL;
+	list->end = NULL;
+	list->size = 0;
+	return (list);
 }

@@ -7,12 +7,14 @@
 #define BUFFER_SIZE 1
 #endif
 
+/** **/
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }	t_list;
 
+/** **/
 typedef struct snode
 {
 	int	val;
@@ -25,6 +27,21 @@ typedef struct linked_list
 	node	*end;
 	int		size;
 } linkedlist;
+
+/** double linked list structs**/
+typedef struct dnode
+{
+	int val;
+	struct dnode *prev;
+	struct dnode *next;
+} d_node;
+
+typedef struct dlinked_list
+{
+	d_node *begin;
+	d_node *end;
+	size_t size;
+} d_linked_list;
 
 /** **/
 int		ft_isalpha(int c);
@@ -61,6 +78,14 @@ void	ft_putnbr_fd(int n, int fd);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+int		ft_len_nbr(int n);
+void	ft_putnbr_base(int nbr, char *base);
+void	ft_int_to_hex(int nbr);
+int		ft_len_uns_nbr(unsigned int n);
+char	*ft_strncpy(char *dest, const char *src, size_t n);
+int		get_next_line(int fd, char **line);
+
+/** linked list from libft bonus**/
 t_list	*ft_lstnew(void *content);
 int		ft_lstsize(t_list *lst);
 void	ft_lstadd_front(t_list **lst, t_list *new);
@@ -70,12 +95,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-int		ft_len_nbr(int n);
-void	ft_putnbr_base(int nbr, char *base);
-void	ft_int_to_hex(int nbr);
-int		ft_len_uns_nbr(unsigned int n);
-char	*ft_strncpy(char *dest, const char *src, size_t n);
-int		get_next_line(int fd, char **line);
 
 /** Refactored functions to work with linked lists **/
 node		*ft_snode_create(int val);
@@ -87,5 +106,13 @@ void		ft_linkedlist_remove(linkedlist *list, int val);
 void		ft_linkedlist_destroy(linkedlist **list_ref);
 int			ft_linkedlist_size(linkedlist *list);
 int			ft_linkedlist_get_val(linkedlist *list, int index);
+
+/** double linkedlists **/
+d_node			*ft_dnode_create(int val);
+d_linked_list	*ft_dlist_create();
+void			ft_dlist_destroy(d_linked_list **d_list_ref);
+void			ft_dlinkdedlist_print(d_linked_list *list);
+d_linked_list	*ft_dlinkedlist_create();
+void			ft_dlinkedlist_add_last(d_linked_list *list, int val);
 
 #endif
