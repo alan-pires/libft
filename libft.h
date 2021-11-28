@@ -7,18 +7,18 @@
 #define BUFFER_SIZE 1
 #endif
 
-/** **/
+/** linked list from libft bonus**/
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }	t_list;
 
-/** **/
+/** simple linked list structs **/
 typedef struct snode
 {
-	int	val;
-	struct snode *next;
+	int				val;
+	struct snode	*next;
 } node;
 
 typedef struct linked_list
@@ -31,19 +31,33 @@ typedef struct linked_list
 /** double linked list structs**/
 typedef struct dnode
 {
-	int val;
-	struct dnode *prev;
-	struct dnode *next;
+	int				val;
+	struct dnode	*prev;
+	struct dnode	*next;
 } d_node;
 
 typedef struct dlinked_list
 {
-	d_node *begin;
-	d_node *end;
-	size_t size;
+	d_node	*begin;
+	d_node	*end;
+	size_t	size;
 } d_linked_list;
 
-/** **/
+/** circular double linked list structs **/
+typedef struct circ_node
+{
+	int					val;
+	struct circ_node	*prev;
+	struct circ_node	*next;
+} c_node;
+
+typedef struct circ_list
+{
+	c_node	*begin;
+	c_node	*end;
+	size_t	size;
+} c_list;
+
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
@@ -96,7 +110,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
-/** Refactored functions to work with linked lists **/
+/** Refactored functions to work with linkedlists **/
 node		*ft_snode_create(int val);
 linkedlist	*ft_linkedlist_create();
 void		ft_linkedlist_add_first(linkedlist *list, int val);
@@ -107,12 +121,23 @@ void		ft_linkedlist_destroy(linkedlist **list_ref);
 int			ft_linkedlist_size(linkedlist *list);
 int			ft_linkedlist_get_val(linkedlist *list, int index);
 
-/** double linkedlists **/
+/** double linkedlist **/
 d_node			*ft_dnode_create(int val);
 d_linked_list	*ft_dlist_create();
 void			ft_dlist_destroy(d_linked_list **d_list_ref);
 void			ft_dlinkdedlist_print(d_linked_list *list);
 d_linked_list	*ft_dlinkedlist_create();
 void			ft_dlinkedlist_add_last(d_linked_list *list, int val);
+void	ft_linkedlist_remove(linkedlist *list, int val);
+
+/** circular double linkedlist **/
+c_node	*ft_cnode_create(int val);
+c_list	*ft_clinkedlist_create();
+void	ft_clinkedlist_destroy(c_list **list_ref);
+void	ft_clinkedlist_add_first(c_list *list, int val);
+void	ft_clinkedlist_add_last(c_list *list, int val);
+void	ft_clinkdedlist_print(c_list *list);
+void	ft_clinkdedlist_inv_print(c_list *list);
+void	ft_clinkedlist_remove(c_list *list, int val);
 
 #endif
