@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 15:40:28 by apires-d          #+#    #+#             */
-/*   Updated: 2021/11/28 16:04:05 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/11/28 23:19:04 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_clinkedlist_remove(c_list *list, int val)
 				list->begin->prev = list->end;
 				list->end->next = list->begin;
 			}
-			ft_clinkedlist_destroy(&node);
+			ft_cnode_destroy(&node);
 			list->size--;
 		}
 		else
@@ -46,7 +46,7 @@ void	ft_clinkedlist_remove(c_list *list, int val)
 						list->end = node->prev;
 					node->prev->next = node->next;
 					node->next->prev = node->prev;
-					ft_clinkedlist_destroy(&node);
+					ft_cnode_destroy(&node);
 					list->size--;
 						break;
 				}

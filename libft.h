@@ -132,6 +132,7 @@ void	ft_linkedlist_remove(linkedlist *list, int val);
 
 /** circular double linkedlist **/
 c_node	*ft_cnode_create(int val);
+void	ft_cnode_destroy(c_node **node_ref);
 c_list	*ft_clinkedlist_create();
 void	ft_clinkedlist_destroy(c_list **list_ref);
 void	ft_clinkedlist_add_first(c_list *list, int val);

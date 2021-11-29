@@ -6,7 +6,7 @@
 #    By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/01 10:47:47 by apires-d          #+#    #+#              #
-#    Updated: 2021/08/30 23:34:17 by apires-d         ###   ########.fr        #
+#    Updated: 2021/11/28 23:20:19 by apires-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,10 @@ OBJ = ft_atoi.o ft_bzero.o ft_calloc.o ft_isalnum.o	ft_isalpha.o \
 	ft_strlcpy.o ft_strlen.o ft_strmapi.o ft_strncmp.o ft_strnstr.o \
 	ft_strrchr.o ft_strtrim.o ft_substr.o ft_tolower.o ft_toupper.o \
 	ft_len_nbr.o ft_len_uns_nbr.o ft_int_to_hex.o ft_putnbr_base.o \
-	ft_strncpy.o get_next_line.o
+	ft_strncpy.o get_next_line.o ft_clinkedlist_create.o \
+	ft_clinkedlist_add_first.o ft_clinkedlist_add_last.o ft_clinkedlist_print.o \
+	ft_clinkedlist_destroy.o ft_clinkedlist_inv_print.o ft_cnode_create.o \
+	ft_cnode_destroy.o ft_clinkedlist_remove.o
 
 OBJ_BONUS = ft_lstnew.o ft_lstadd_front.o ft_lstsize.o ft_lstlast.o \
 	ft_lstadd_back.o ft_lstdelone.o ft_lstclear.o ft_lstiter.o \

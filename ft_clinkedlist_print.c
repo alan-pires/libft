@@ -6,7 +6,7 @@
 /*   By: apires-d <apires-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 14:14:02 by apires-d          #+#    #+#             */
-/*   Updated: 2021/11/27 15:27:32 by apires-d         ###   ########.fr       */
+/*   Updated: 2021/11/28 23:04:06 by apires-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 void	ft_clinkdedlist_print(c_list *list)
 {
 	c_node	*node;
-	int		aux;
+	size_t	aux;
 
 	aux = 0;
 	if (list->size == 0)
